@@ -8,16 +8,19 @@ interface IconButtonProps {
 }
 
 const IconButton = ({
-  onClick,
-  ariaLabel,
   children,
   className,
+  ariaLabel,
+  ...props
 }: IconButtonProps) => {
   return (
     <button
-      onClick={onClick}
       aria-label={ariaLabel}
-      className={`p-2 rounded-full bg-zinc-200 hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600 cursor-pointer ${className}`}
+      {...props}
+      className={`
+        p-2 rounded-full bg-zinc-200 hover:bg-zinc-300 
+        dark:bg-zinc-700 dark:hover:bg-zinc-600 cursor-pointer 
+        ${className}`}
     >
       {children}
     </button>

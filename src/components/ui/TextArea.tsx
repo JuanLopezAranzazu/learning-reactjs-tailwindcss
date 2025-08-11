@@ -8,13 +8,13 @@ interface TextAreaProps {
   className?: string;
 }
 
-export default function TextArea({
+const TextArea = ({
   label,
   error,
   onChange,
   className = "",
   ...props
-}: TextAreaProps) {
+}: TextAreaProps) => {
   return (
     <div className="mb-4">
       {label && <label className="block mb-1 font-medium">{label}</label>}
@@ -31,4 +31,6 @@ export default function TextArea({
       {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
     </div>
   );
-}
+};
+
+export default TextArea;

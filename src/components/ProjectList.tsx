@@ -12,6 +12,7 @@ const ProjectList = ({
   onEditProject,
   onDeleteProject,
 }: ProjectListProps) => {
+  
   if (projects.length === 0) {
     return (
       <p className="text-gray-500 dark:text-gray-400">

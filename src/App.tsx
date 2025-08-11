@@ -20,21 +20,21 @@ const App = () => {
   };
 
   // Crear proyecto
-  const onCreateProject = ({ name, description }: ProjectRequest) => {
+  const onCreateProject = ({ name, description, tags }: ProjectRequest) => {
     setProjects((prevProjects) => [
       ...prevProjects,
-      { id: uuidV4(), name, description, createdAt: new Date() },
+      { id: uuidV4(), name, description, tags, createdAt: new Date() },
     ]);
   };
 
   // Actualizar proyecto
   const onUpdateProject = (
     id: string,
-    { name, description }: ProjectRequest
+    { name, description, tags }: ProjectRequest
   ) => {
     setProjects((prevProjects) =>
       prevProjects.map((project) =>
-        project.id === id ? { ...project, name, description } : project
+        project.id === id ? { ...project, name, description, tags } : project
       )
     );
   };

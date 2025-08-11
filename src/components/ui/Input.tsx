@@ -10,13 +10,7 @@ interface InputProps {
   placeholder?: string;
 }
 
-export default function Input({
-  label,
-  error,
-  onChange,
-  className = "",
-  ...props
-}: InputProps) {
+const Input = ({ label, error, className = "", ...props }: InputProps) => {
   return (
     <div className="mb-4">
       {label && <label className="block mb-1 font-medium">{label}</label>}
@@ -28,10 +22,10 @@ export default function Input({
             ? "border-red-500 focus:ring-red-300"
             : "border-gray-300 focus:ring-blue-300"
         } ${className}`}
-        onChange={onChange}
-        {...props}
       />
       {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
     </div>
   );
-}
+};
+
+export default Input;
