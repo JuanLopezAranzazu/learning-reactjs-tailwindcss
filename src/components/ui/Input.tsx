@@ -1,0 +1,37 @@
+interface InputProps {
+  label?: string;
+  error?: string;
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  name?: string;
+  value: string;
+  className?: string;
+  placeholder?: string;
+}
+
+export default function Input({
+  label,
+  error,
+  onChange,
+  className = "",
+  ...props
+}: InputProps) {
+  return (
+    <div className="mb-4">
+      {label && <label className="block mb-1 font-medium">{label}</label>}
+      <input
+        type="text"
+        {...props}
+        className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+          error
+            ? "border-red-500 focus:ring-red-300"
+            : "border-gray-300 focus:ring-blue-300"
+        } ${className}`}
+        onChange={onChange}
+        {...props}
+      />
+      {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
+    </div>
+  );
+}
